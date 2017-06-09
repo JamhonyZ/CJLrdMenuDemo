@@ -20,20 +20,26 @@
 @property (nonatomic, assign)BOOL ifShowTabBarMask;
 
 //是否需要底部收起的按钮
+
 @property (nonatomic, assign)BOOL ifNeedFoot;
 
 //标题图片距离等分控件 右侧间距
+
 @property (nonatomic, assign)NSInteger titleIconRightSpace;
+
 /**
- * 默认的条件索引 传入数组
+ * 默认的条件索引 传入数组 
  * _menu.defaultSubIndexArr = @[@"2",@"3",@"1"];
  */
+	
 @property (nonatomic, strong)NSArray *defaultSubIndexArr;
 @property (nonatomic, strong)UIColor *titleNormalColor;
 @property (nonatomic, strong)UIColor *titleSelectColor;
 @property (nonatomic, strong)UIColor *cellNormalColor;
 @property (nonatomic, strong)UIColor *cellSelectColor;
+
 //选中之后的样式
+
 @property (nonatomic, assign)kCJLrdSelectMenuType selectType;
 
 第三步:数据加载
