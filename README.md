@@ -16,9 +16,12 @@
 第二步: 相关配置
 
 //如果是标签页面，UI需要遮盖 标签栏 赋值为YES
+
 @property (nonatomic, assign)BOOL ifShowTabBarMask;
+
 //是否需要底部收起的按钮
 @property (nonatomic, assign)BOOL ifNeedFoot;
+
 //标题图片距离等分控件 右侧间距
 @property (nonatomic, assign)NSInteger titleIconRightSpace;
 /**
