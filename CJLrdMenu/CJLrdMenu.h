@@ -50,6 +50,10 @@ typedef NS_ENUM(NSUInteger, kCJLrdSelectMenuType) {
 @property (nonatomic, copy)CJMenuChooseBlock chooseBlock;
 
 #pragma mark -- 初始化 第一步
+/**
+ *  topItemArr: 标题数组
+ *  subMenuArr: 包含列表数组的数组
+ */
 - (instancetype)initWithFrame:(CGRect)frame
                      topItems:(NSArray *)topItemArr
                      subItems:(NSArray *)subMenuArr
