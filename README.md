@@ -30,7 +30,8 @@
 @property (nonatomic, strong)UIColor *cellSelectColor;
 //选中之后的样式
 @property (nonatomic, assign)kCJLrdSelectMenuType selectType;
-第三步:
+
+第三步:数据加载
 //开始加载数据 在确保menu添加到父视图之后 调用 ，并且配置好各属性
 - (void)startReloadData;
 
