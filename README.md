@@ -11,6 +11,7 @@
                      topItems:(NSArray *)topItemArr
                      subItems:(NSArray *)subMenuArr
                   chooseBlock:(CJMenuChooseBlock)chooseBlcok
+                  
 第二步: 相关配置
 //如果是标签页面，UI需要遮盖 标签栏 赋值为YES
 @property (nonatomic, assign)BOOL ifShowTabBarMask;
