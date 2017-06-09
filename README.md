@@ -33,10 +33,15 @@
  */
 	
 @property (nonatomic, strong)NSArray *defaultSubIndexArr;
+
 @property (nonatomic, strong)UIColor *titleNormalColor;
+
 @property (nonatomic, strong)UIColor *titleSelectColor;
+
 @property (nonatomic, strong)UIColor *cellNormalColor;
+
 @property (nonatomic, strong)UIColor *cellSelectColor;
+
 
 //选中之后的样式
 
