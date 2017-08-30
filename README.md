@@ -56,8 +56,7 @@ CJLrdMenu_Header.h 中有该类里所用到的宏定义，可自行修改。
        @property (nonatomic, strong)UIColor *cellSelectColor;
 
 
-       //选中之后的样式
-       @property (nonatomic, assign)kCJLrdSelectMenuType selectType;
+       
 
 
 第三步:数据加载
