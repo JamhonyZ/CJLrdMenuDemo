@@ -48,11 +48,15 @@ CJLrdMenu_Header.h 中有该类里所用到的宏定义，可自行修改。
    @property (nonatomic, strong)UIColor *cellNormalColor;
 
    @property (nonatomic, strong)UIColor *cellSelectColor;
+   
+   //默认为YES，标题随着下面的选项变更的。设置为NO，则标题不变。
+   @property (nonatomic, assign)BOOL ifNeedChangeTitle;
 
-
+  //下拉框可见cell的最大个数 默认是4个
+   @property (nonatomic, assign)NSInteger maxShowTbCellCount;
    //选中之后的样式
 
-   @property (nonatomic, assign)kCJLrdSelectMenuType selectType;
+   @property (nonatomic, assign)CJLrdSelectMenuType selectType;
 
 第三步:数据加载
 
