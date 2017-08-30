@@ -54,8 +54,8 @@ CJLrdMenu_Header.h 中有该类里所用到的宏定义，可自行修改。
 
   //下拉框可见cell的最大个数 默认是4个
    @property (nonatomic, assign)NSInteger maxShowTbCellCount;
+   
    //选中之后的样式
-
    @property (nonatomic, assign)CJLrdSelectMenuType selectType;
 
 第三步:数据加载
