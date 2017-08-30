@@ -7,7 +7,7 @@
 //
 
 #import "CJLrdMenu.h"
-#import "UIButton+ImgTitleLayout.h"
+#import "UIButton+cjBtn.h"
 #import "CJLrdMenu_Header.h"
 
 #pragma mark -- /*****Cell******/

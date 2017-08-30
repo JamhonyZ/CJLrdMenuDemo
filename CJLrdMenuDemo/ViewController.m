@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.title = @"我的";
     [self.view addSubview:self.menu];
     [self.menu startReloadData];
 }
@@ -39,7 +39,7 @@
         NSArray *list0 = [self getMenuList:_titleArr[0] menuCount:4];
         NSArray *list1 = [self getMenuList:_titleArr[1] menuCount:5];
         
-        _menu = [[CJLrdMenu alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)
+        _menu = [[CJLrdMenu alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 44)
                                         topItems:_titleArr
                                         subItems:@[list0,list1]
                                      chooseBlock:^(NSInteger chooseMainIndex, NSInteger chooseSubIndex) {

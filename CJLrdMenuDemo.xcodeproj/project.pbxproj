@@ -13,6 +13,7 @@
 		CD9B57971EEA46F900213C7E /* lrdMenu_arrow_up@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9B57911EEA46F900213C7E /* lrdMenu_arrow_up@3x.png */; };
 		CD9B57981EEA46F900213C7E /* ser_choice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9B57921EEA46F900213C7E /* ser_choice@2x.png */; };
 		CD9B57991EEA46F900213C7E /* ser_choice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9B57931EEA46F900213C7E /* ser_choice@3x.png */; };
+		CDF28C201F56A45B000E81DD /* UIButton+cjBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF28C1F1F56A45B000E81DD /* UIButton+cjBtn.m */; };
 		CDFDE6331EE92739005BD6B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE6321EE92739005BD6B3 /* main.m */; };
 		CDFDE6361EE92739005BD6B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE6351EE92739005BD6B3 /* AppDelegate.m */; };
 		CDFDE6391EE92739005BD6B3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE6381EE92739005BD6B3 /* ViewController.m */; };
@@ -22,7 +23,6 @@
 		CDFDE64C1EE92739005BD6B3 /* CJLrdMenuDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE64B1EE92739005BD6B3 /* CJLrdMenuDemoTests.m */; };
 		CDFDE6571EE92739005BD6B3 /* CJLrdMenuDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE6561EE92739005BD6B3 /* CJLrdMenuDemoUITests.m */; };
 		CDFDE6671EE92798005BD6B3 /* CJLrdMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE6661EE92798005BD6B3 /* CJLrdMenu.m */; };
-		CDFDE66D1EE927E5005BD6B3 /* UIButton+ImgTitleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE66A1EE927E5005BD6B3 /* UIButton+ImgTitleLayout.m */; };
 		CDFDE6771EE934A4005BD6B3 /* CJRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE6761EE934A4005BD6B3 /* CJRootVC.m */; };
 		CDFDE67A1EE937A8005BD6B3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDE6791EE937A8005BD6B3 /* HomeViewController.m */; };
 /* End PBXBuildFile section */
@@ -52,6 +52,8 @@
 		CD9B57921EEA46F900213C7E /* ser_choice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ser_choice@2x.png"; sourceTree = "<group>"; };
 		CD9B57931EEA46F900213C7E /* ser_choice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ser_choice@3x.png"; sourceTree = "<group>"; };
 		CD9B579A1EEA62C700213C7E /* CJLrdMenu_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJLrdMenu_Header.h; sourceTree = "<group>"; };
+		CDF28C1E1F56A45B000E81DD /* UIButton+cjBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+cjBtn.h"; sourceTree = "<group>"; };
+		CDF28C1F1F56A45B000E81DD /* UIButton+cjBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+cjBtn.m"; sourceTree = "<group>"; };
 		CDFDE62E1EE92738005BD6B3 /* CJLrdMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJLrdMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDFDE6321EE92739005BD6B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDFDE6341EE92739005BD6B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,8 +72,6 @@
 		CDFDE6581EE92739005BD6B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDFDE6651EE92798005BD6B3 /* CJLrdMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJLrdMenu.h; sourceTree = "<group>"; };
 		CDFDE6661EE92798005BD6B3 /* CJLrdMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJLrdMenu.m; sourceTree = "<group>"; };
-		CDFDE6691EE927E5005BD6B3 /* UIButton+ImgTitleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImgTitleLayout.h"; sourceTree = "<group>"; };
-		CDFDE66A1EE927E5005BD6B3 /* UIButton+ImgTitleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImgTitleLayout.m"; sourceTree = "<group>"; };
 		CDFDE6751EE934A4005BD6B3 /* CJRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJRootVC.h; sourceTree = "<group>"; };
 		CDFDE6761EE934A4005BD6B3 /* CJRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJRootVC.m; sourceTree = "<group>"; };
 		CDFDE6781EE937A8005BD6B3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -116,6 +116,15 @@
 			path = lrdMenuResources;
 			sourceTree = "<group>";
 		};
+		CDF28C1D1F56A45B000E81DD /* CJDelayBtn */ = {
+			isa = PBXGroup;
+			children = (
+				CDF28C1E1F56A45B000E81DD /* UIButton+cjBtn.h */,
+				CDF28C1F1F56A45B000E81DD /* UIButton+cjBtn.m */,
+			);
+			path = CJDelayBtn;
+			sourceTree = SOURCE_ROOT;
+		};
 		CDFDE6251EE92738005BD6B3 = {
 			isa = PBXGroup;
 			children = (
@@ -139,7 +148,7 @@
 		CDFDE6301EE92738005BD6B3 /* CJLrdMenuDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CDFDE6681EE927E5005BD6B3 /* CJCateGory */,
+				CDF28C1D1F56A45B000E81DD /* CJDelayBtn */,
 				CDFDE6641EE92798005BD6B3 /* CJLrdMenu */,
 				CDFDE6341EE92739005BD6B3 /* AppDelegate.h */,
 				CDFDE6351EE92739005BD6B3 /* AppDelegate.m */,
@@ -193,15 +202,6 @@
 				CD9B579A1EEA62C700213C7E /* CJLrdMenu_Header.h */,
 			);
 			path = CJLrdMenu;
-			sourceTree = SOURCE_ROOT;
-		};
-		CDFDE6681EE927E5005BD6B3 /* CJCateGory */ = {
-			isa = PBXGroup;
-			children = (
-				CDFDE6691EE927E5005BD6B3 /* UIButton+ImgTitleLayout.h */,
-				CDFDE66A1EE927E5005BD6B3 /* UIButton+ImgTitleLayout.m */,
-			);
-			path = CJCateGory;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -344,7 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDFDE6391EE92739005BD6B3 /* ViewController.m in Sources */,
-				CDFDE66D1EE927E5005BD6B3 /* UIButton+ImgTitleLayout.m in Sources */,
+				CDF28C201F56A45B000E81DD /* UIButton+cjBtn.m in Sources */,
 				CDFDE6361EE92739005BD6B3 /* AppDelegate.m in Sources */,
 				CDFDE67A1EE937A8005BD6B3 /* HomeViewController.m in Sources */,
 				CDFDE6671EE92798005BD6B3 /* CJLrdMenu.m in Sources */,

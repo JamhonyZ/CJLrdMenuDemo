@@ -33,7 +33,7 @@
                                    kImgKey    : @"tab_home",
                                    kSelImgKey : @"tab_home_select"},
                                  
-                                 @{kClassKey  : @"UIViewController",
+                                 @{kClassKey  : @"ViewController",
                                    kTitleKey  : @"我的",
                                    kImgKey    : @"tab_mine",
                                    kSelImgKey : @"tab_mine_select"}];

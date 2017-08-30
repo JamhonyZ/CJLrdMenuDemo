@@ -15,7 +15,7 @@
 typedef void(^CJMenuChooseBlock)(NSInteger chooseMainIndex,NSInteger chooseSubIndex);
 
 
-typedef NS_ENUM(NSUInteger, kCJLrdSelectMenuType) {
+typedef NS_ENUM(NSUInteger, CJLrdSelectMenuType) {
     kLrdSelectTypeNormal,        //选中图片加文字变色
     kLrdSelectTypeEnlarge,       //选中放大
     kLrdSelectTypeDeviation,     //选中偏移
@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, kCJLrdSelectMenuType) {
 //所在子索引
 @property (nonatomic, assign)NSInteger chooseSubIndex;
 //选中显示样式
-@property (nonatomic, assign)kCJLrdSelectMenuType selectType;
+@property (nonatomic, assign)CJLrdSelectMenuType selectType;
 //选中状态
 @property (nonatomic, copy)NSString *ifChoose;
 //选择反馈
@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, kCJLrdSelectMenuType) {
 @property (nonatomic, assign)NSInteger titleIconRightSpace;
 
 /**
- * 默认的条件索引 传入数组
+ * 默认的条件索引 传入数组,需要和 topItemArr 数量一致
  * _menu.defaultSubIndexArr = @[@"2",@"3",@"1"];
  */
 @property (nonatomic, strong)NSArray *defaultSubIndexArr;
@@ -86,6 +86,6 @@ typedef NS_ENUM(NSUInteger, kCJLrdSelectMenuType) {
 @property (nonatomic, strong)UIColor *cellSelectColor;
 
 //选中之后的样式
-@property (nonatomic, assign)kCJLrdSelectMenuType selectType;
+@property (nonatomic, assign)CJLrdSelectMenuType selectType;
 
 @end
