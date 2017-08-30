@@ -45,7 +45,6 @@ typedef NS_ENUM(NSUInteger, CJLrdSelectMenuType) {
 #pragma mark -- Menu
 @interface CJLrdMenu : UIView
 
-
 //回调
 @property (nonatomic, copy)CJMenuChooseBlock chooseBlock;
 
@@ -80,10 +79,17 @@ typedef NS_ENUM(NSUInteger, CJLrdSelectMenuType) {
  */
 @property (nonatomic, strong)NSArray *defaultSubIndexArr;
 
+//默认为YES，标题随着下面的选项变更的。设置为NO，则标题不变。
+@property (nonatomic, assign)BOOL ifNeedChangeTitle;
+
+//下拉框可见cell的最大个数 默认是4个
+@property (nonatomic, assign)NSInteger maxShowTbCellCount;
+
 @property (nonatomic, strong)UIColor *titleNormalColor;
 @property (nonatomic, strong)UIColor *titleSelectColor;
 @property (nonatomic, strong)UIColor *cellNormalColor;
 @property (nonatomic, strong)UIColor *cellSelectColor;
+
 
 //选中之后的样式
 @property (nonatomic, assign)CJLrdSelectMenuType selectType;

@@ -16,8 +16,10 @@ static CGFloat const kSubMenuCellHeight = 44.f;
 static NSString *const kSubMenuSelIconName = @"ser_choice";
 //下拉列表弹出收起动画时间
 static NSTimeInterval const kAnimateTime = .25f;
+
+static NSInteger const kMaxShowCellCount = 4;
 //tableView高度
-static CGFloat const kTbViewHeight = kSubMenuCellHeight*4;
+static CGFloat const kTbViewHeight = kSubMenuCellHeight*kMaxShowCellCount;
 //标题图片距离左侧距离（默认标题为去除图片之后居中）
 static CGFloat const kTitleIcon_rightSpace = 10.f;
 //列表图片距离左侧距离

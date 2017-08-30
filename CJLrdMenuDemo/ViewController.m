@@ -46,7 +46,13 @@
             NSLog(@"选择标题:%@,列表：%@",@(chooseMainIndex),@(chooseSubIndex));
         }];
         _menu.ifNeedFoot = YES;
+        _menu.titleNormalColor = [UIColor blueColor];
+        _menu.titleSelectColor = [UIColor orangeColor];
+        _menu.cellNormalColor = [UIColor blueColor];
+        _menu.cellSelectColor = [UIColor orangeColor];
         _menu.defaultSubIndexArr = @[@"2",@"3"];
+        _menu.ifNeedChangeTitle = NO;
+        _menu.maxShowTbCellCount = 5;
     }
     return _menu;
 }

@@ -108,8 +108,10 @@
 @property (nonatomic, strong)NSMutableArray *subTbArr;
 //所有标题
 @property (nonatomic, strong)NSMutableArray *mainTitleArr;
-//存放 选中的cell 列表
+//存放 选中的cell 模型
 @property (nonatomic, strong)NSMutableArray *lrdModelArr;
+//存放每个下拉框的高度
+@property (nonatomic, strong)NSMutableArray *showTbHeightArr;
 
 @property (nonatomic, strong)UIView *tabBarMaskView;
 
@@ -134,6 +136,8 @@
         _cellNormalColor = kCellNormalColor;
         _cellSelectColor = kCellSelectColor;
         _titleIconRightSpace = kTitleIcon_rightSpace;
+        _ifNeedChangeTitle = YES;
+        _maxShowTbCellCount = kMaxShowCellCount;
         //背景色
         self.backgroundColor = [UIColor whiteColor];
         
@@ -148,7 +152,7 @@
     return self;
 }
 
-
+#pragma mark -- 初始化标题显示; 默认显示的内容
 - (void)configTitleView {
     //标题
     CGFloat kItemW = self.frame.size.width/_topItemArr.count;
@@ -156,7 +160,7 @@
         NSString *obj = _topItemArr[idx];
         
         //存在赋值默认索引
-        if (_defaultSubIndexArr.count == _topItemArr.count) {
+        if (_defaultSubIndexArr.count == _topItemArr.count && _ifNeedChangeTitle) {
             NSInteger defaultSubIndex = [_defaultSubIndexArr[idx] integerValue];
             if (defaultSubIndex <= ((NSArray *)_subMenuArr[idx]).count) {
                 obj = [((NSArray *)_subMenuArr[idx]) objectAtIndex:defaultSubIndex];
@@ -201,7 +205,7 @@
     [self addSubview:lineView];
 }
 
-
+#pragma mark -- 初始化 下拉框tbView; 组装cell所需模型; 存储最大显示高度
 - (void)configTbView {
     //列表
     CGFloat kTbWidth = CGRectGetWidth(self.frame);
@@ -242,6 +246,12 @@
         }];
         [self.lrdModelArr addObject:models];
         
+        
+        //存储显示的高度
+        NSInteger maxShowCellCount = subMenuArr.count > _maxShowTbCellCount ? _maxShowTbCellCount : subMenuArr.count;
+        CGFloat showHeight = maxShowCellCount * kSubMenuCellHeight;
+        [self.showTbHeightArr addObject:[NSString stringWithFormat:@"%@",@(showHeight)]];
+        
         //加载
         [tbView reloadData];
         
@@ -276,7 +286,9 @@
         [self stopChooseAction];
         return;
     }
-    NSLog(@"切换");
+    
+//    NSLog(@"切换");
+    
     _lastMainIndex = index;
     //改变显示的列表
     [self showTbView:index];
@@ -320,21 +332,23 @@
     //开始动画
     [UIView animateWithDuration:kAnimateTime*1.2 animations:^{
         CGFloat kTbWidth = CGRectGetWidth(self.frame);
-        currentTbView.frame = CGRectMake(0,CGRectGetMaxY(self.frame),kTbWidth,kTbViewHeight);
+        CGFloat kShowTbHeight = [self.showTbHeightArr[index] floatValue];
+        currentTbView.frame = CGRectMake(0,CGRectGetMaxY(self.frame),kTbWidth,kShowTbHeight);
         self.maskBgView.alpha = 1;
         
         if (_ifNeedFoot) {
             self.closeFootView.alpha = 1;
             
-            self.closeFootView.frame = CGRectMake(0,CGRectGetMaxY(self.frame)+kTbViewHeight, CGRectGetWidth(self.frame), 20);
+            self.closeFootView.frame = CGRectMake(0,CGRectGetMaxY(self.frame)+kShowTbHeight, CGRectGetWidth(self.frame), 20);
             
             [self.superview bringSubviewToFront:self.closeFootView];
         }
         
-        if (_ifShowTabBarMask) {
+        if (_ifShowTabBarMask && _ifNeedFoot) {
             self.tabBarMaskView.alpha = 1;
         }
     } completion:^(BOOL finished) {
+        
     }];
 }
 - (void)hiddenTbView:(BOOL)ifChange {
@@ -414,16 +428,19 @@
         if (self.chooseBlock) {
             self.chooseBlock(chooseMainIndex,chooseSubIndex);
             
-            UIButton *chooseBtn = self.mainTitleArr[chooseMainIndex];
-            NSArray *titleArr = self.subMenuArr[chooseMainIndex];
-            NSString *title = titleArr[chooseSubIndex];
-            [chooseBtn setTitle:title forState:UIControlStateNormal];
+            //改变标题
+            if (self.ifNeedChangeTitle) {
+                UIButton *chooseBtn = self.mainTitleArr[chooseMainIndex];
+                NSArray *titleArr = self.subMenuArr[chooseMainIndex];
+                NSString *title = titleArr[chooseSubIndex];
+                [chooseBtn setTitle:title forState:UIControlStateNormal];
+            }
             
         }
         [self stopChooseAction];
     };
     
-    //配置
+    //配置cell显示内容
     NSArray *menuStrArr = self.subMenuArr[tableView.tag-kTbBasicTag];
     if (menuStrArr.count>indexPath.row) {
         NSString *str = menuStrArr[indexPath.row];
@@ -493,7 +510,7 @@
 - (UIButton *)closeFootView {
     if (!_closeFootView) {
         _closeFootView = [UIButton buttonWithType:UIButtonTypeCustom];
-        _closeFootView.frame = CGRectMake(0, kTbViewHeight+CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), 0);
+        _closeFootView.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), 0);
         [_closeFootView setTitle:@"000⌒∩⌒000" forState:UIControlStateNormal];
         _closeFootView.titleLabel.font = kFontSizeUse(13);
         [_closeFootView setTitleColor:UIColorHex(0x666666) forState:UIControlStateNormal];
@@ -523,5 +540,10 @@
     }
     return _lrdModelArr;
 }
-
+- (NSMutableArray *)showTbHeightArr {
+    if (!_showTbHeightArr) {
+        _showTbHeightArr = @[].mutableCopy;
+    }
+    return _showTbHeightArr;
+}
 @end
