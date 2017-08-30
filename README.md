@@ -10,26 +10,35 @@ CJLrdMenu_Header.h 中有该类里所用到的宏定义，可自行修改。
 
 第一步：init初始化创建
 
-      /**
-       *  topItemArr: 标题数组
-       *  subMenuArr: 包含列表数组的数组
-       */
+       /**
+        *  topItemArr: 标题数组
+        *  subMenuArr: 包含列表数组的数组
+        */
      
-      - (instancetype)initWithFrame:(CGRect)frame
+       - (instancetype)initWithFrame:(CGRect)frame
                            topItems:(NSArray *)topItemArr
                            subItems:(NSArray *)subMenuArr
                         chooseBlock:(CJMenuChooseBlock)chooseBlcok
                   
 第二步: 相关配置
 
-       //如果是标签页面，UI需要遮盖 标签栏 赋值为YES
-       @property (nonatomic, assign)BOOL ifShowTabBarMask;
+        //如果是标签页面，UI需要遮盖 标签栏 赋值为YES
+        @property (nonatomic, assign)BOOL ifShowTabBarMask;
 
-       //是否需要底部收起的按钮
-       @property (nonatomic, assign)BOOL ifNeedFoot;
+        //是否需要底部收起的按钮
+        @property (nonatomic, assign)BOOL ifNeedFoot;
 
-       //标题图片距离等分控件 右侧间距
-       @property (nonatomic, assign)NSInteger titleIconRightSpace;
+        //标题图片距离等分控件 右侧间距
+        @property (nonatomic, assign)NSInteger titleIconRightSpace;
+
+        //默认为YES，标题随着下面的选项变更的。设置为NO，则标题不变。
+        @property (nonatomic, assign)BOOL ifNeedChangeTitle;
+
+        //下拉框可见cell的最大个数 默认是4个
+        @property (nonatomic, assign)NSInteger maxShowTbCellCount;
+
+        //选中之后的样式
+        @property (nonatomic, assign)CJLrdSelectMenuType selectType;
 
        /**
         * 默认的条件索引 传入数组 
