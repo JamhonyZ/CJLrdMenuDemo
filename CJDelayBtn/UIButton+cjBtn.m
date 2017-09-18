@@ -17,31 +17,37 @@ static const char *leftNameKey;
 static const char *titleRectKey;
 static const char *imageRectKey;
 
+#pragma mark ----------UIControl-------------
 
 @interface UIControl ()
-
+//是否忽略
 @property (nonatomic, assign)BOOL cj_ignoreEvent;
 
 @end
 
 @implementation UIControl (cjBtn)
 
-
-#pragma mark ----------UIControl-------------
 + (void)load {
     //延迟
     Method sys_method = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
     Method add_method = class_getInstanceMethod(self, @selector(cj_sendAction:to:forEvent:));
     method_exchangeImplementations(sys_method, add_method);
 }
+
 #pragma mark -- 延迟
-- (void)cj_sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
+- (void)cj_sendAction:(SEL)action to:(nullable id)target
+             forEvent:(nullable UIEvent *)event {
+    
     
     if (self.cj_ignoreEvent) return;
-    if (self.cj_delayTime > 0) {
+    
+    CGFloat delay = [self.cj_delayTime doubleValue];
+    //        NSLog(@"延迟时间：%@,%@",@([self.cj_delayTime doubleValue]),@(delay));
+    if (delay > 0) {
         self.cj_ignoreEvent = YES;
-        [self performSelector:@selector(setCj_ignoreEvent:) withObject:@(NO) afterDelay:self.cj_delayTime];
+        [self performSelector:@selector(setCj_ignoreEvent:) withObject:@(NO) afterDelay:delay];
     }
+    
     [self cj_sendAction:action to:target forEvent:event];
 }
 
@@ -53,17 +59,21 @@ static const char *imageRectKey;
  id value                      :被关联者
  objc_AssociationPolicy policy : 关联时采用的协议，有assign，retain，copy等协议，一般使用OBJC_ASSOCIATION_RETAIN_NONATOMIC
  */
-- (void)setCj_delayTime:(NSTimeInterval)cj_delayTime {
-    objc_setAssociatedObject(self, @selector(cj_delayTime), @(cj_delayTime), OBJC_ASSOCIATION_ASSIGN);
+//间隔时间
+- (void)setCj_delayTime:(NSString *)cj_delayTime {
+    objc_setAssociatedObject(self, @selector(cj_delayTime), cj_delayTime, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-- (NSTimeInterval)cj_delayTime {
-    return [objc_getAssociatedObject(self, _cmd) doubleValue];
+- (NSNumber *)cj_delayTime {
+    return objc_getAssociatedObject(self, _cmd);
 }
 //是否忽略
 - (void)setCj_ignoreEvent:(BOOL)cj_ignoreEvent{
     objc_setAssociatedObject(self, @selector(cj_ignoreEvent), @(cj_ignoreEvent), OBJC_ASSOCIATION_ASSIGN);
 }
-
+/**
+ * 这里的 _cmd 代指当前方法的选择子，也就是 @selector(cj_ignoreEvent)。
+ * 这种方法省略了声明参数的代码，并且能很好地保证 key 的唯一性。
+ */
 - (BOOL)cj_ignoreEvent{
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
@@ -84,26 +94,25 @@ static const char *imageRectKey;
     MethodSwizzle(self,@selector(imageRectForContentRect:),@selector(override_imageRectForContentRect:));
 }
 
-
 #pragma mark -- Block封装
 - (void)cj_clickControl:(cj_click_block)block {
+    
     [self cj_clickControl:block delay:0];
+    
 }
 - (void)cj_clickControl:(cj_click_block)block delay:(NSTimeInterval)delay {
     
     [self addTarget:self action:@selector(cj_clickBtn:) forControlEvents:UIControlEventTouchUpInside];
     
     if (delay>0) {
-        self.cj_delayTime = delay;
+        self.cj_delayTime =  @(delay);
     }
     
     //存储block行为
     if (block) {
         objc_setAssociatedObject(self, &buttonCallBackBlockKey, block, OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
-    
 }
-
 - (void)cj_clickBtn:(UIButton *)sender {
     //取出
     cj_click_block block = objc_getAssociatedObject(self, &buttonCallBackBlockKey);
@@ -125,14 +134,14 @@ static const char *imageRectKey;
 
 - (CGRect)imageRect {
     
-    NSValue * rectValue = objc_getAssociatedObject(self, imageRectKey);
+    NSValue * rectValue = objc_getAssociatedObject(self, &imageRectKey);
     
     return [rectValue CGRectValue];
 }
 
 - (void)setImageRect:(CGRect)rect {
     
-    objc_setAssociatedObject(self, imageRectKey, [NSValue valueWithCGRect:rect], OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(self, &imageRectKey, [NSValue valueWithCGRect:rect], OBJC_ASSOCIATION_RETAIN);
 }
 
 void MethodSwizzle(Class c,SEL origSEL,SEL overrideSEL)

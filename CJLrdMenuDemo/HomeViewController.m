@@ -51,7 +51,7 @@
 - (NSArray *)getMenuList:(NSString *)title menuCount:(NSInteger)count {
     NSMutableArray *arr = @[].mutableCopy;
     for (int i = 0; i<count; i++) {
-        [arr addObject:[NSString stringWithFormat:@"%@%@",title,@(i)]];
+        [arr addObject:[NSString stringWithFormat:@"内容%@",@(i)]];
     }
     return arr;
 }

@@ -9,23 +9,25 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  延迟功能
+ *  间隔功能
  *  block封装
  *  图文位置
  *  热响应区域
  */
 typedef void(^cj_click_block)(UIButton *btn);
 
+#pragma mark -- UIControl
+
 @interface UIControl (cjBtn)
 
-
 /**
- * 延迟功能
+ * 间隔功能 http://www.cocoachina.com/ios/20150629/12299.html 如果用assign，NSTimeInterval会出现iOS8系统提前释放，崩溃的问题
  */
-@property(nonatomic,assign)NSTimeInterval cj_delayTime;
+@property(nonatomic,strong)NSNumber *cj_delayTime;
 
 @end
 
+#pragma mark -- UIButton
 
 @interface UIButton (cjBtn)
 
@@ -35,7 +37,6 @@ typedef void(^cj_click_block)(UIButton *btn);
 - (void)cj_clickControl:(cj_click_block)block;
 
 - (void)cj_clickControl:(cj_click_block)block delay:(NSTimeInterval)delay;
-
 
 /**
  *  文字相对于按钮的的位置
