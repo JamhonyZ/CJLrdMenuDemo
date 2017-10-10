@@ -68,6 +68,6 @@ CJLrdMenu_Header.h 中有该类里所用到的宏定义，可自行修改。
 ----------------------- 效果图 -----------------------
 ![image](https://github.com/JamhonyZ/CJLrdMenuDemo/blob/master/Image/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202017-10-10%20at%2011.09.48.png)
 
-![image](https://github.com/JamhonyZ/CJLrdMenuDemo/blob/master/Image/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202017-10-10%20at%2011.10.12.png)
+
 
 /**********更多详情参考demo************/
