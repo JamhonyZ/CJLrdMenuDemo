@@ -64,4 +64,10 @@ CJLrdMenu_Header.h 中有该类里所用到的宏定义，可自行修改。
       //开始加载数据 在确保menu添加到父视图之后 调用 ，并且配置好各属性
       - (void)startReloadData;
 
+
+----------------------- 效果图 -----------------------
+![image](https://github.com/JamhonyZ/CJLrdMenuDemo/blob/master/Image/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202017-10-10%20at%2011.09.48.png)
+
+![image](https://github.com/JamhonyZ/CJLrdMenuDemo/blob/master/Image/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202017-10-10%20at%2011.10.12.png)
+
 /**********更多详情参考demo************/
